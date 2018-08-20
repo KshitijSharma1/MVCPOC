@@ -18,15 +18,31 @@
     </style>
 </head>
 <body>
-    <h1>LIST OF EMPLOYEES</h1>
+    <h1>ADD EMPLOYEE</h1> <br />
+    <div class="container" style="width: 1700px; height: 259px; align-self:initial; padding-right:50% ">
+        @{
+            if (Model.SelectedEmployee != null)
+            {
+                Html.RenderPartial
+                ("_EditEmployee", Model.SelectedEmployee);
+
+            }
+            else
+            {
+                Html.RenderPartial("_InsertEmployee",
+                    new MVCPOC.Models.Employee());
+            }
+        }
+    </div>
+    <br />
+  @*  <h2>LIST OF EMPLOYEES</h2>*@
+
 
     <form method="post">
-        <input type="submit" class="btn btn-success"
-               value="Add Employees" formaction="/home/new" />
         <br /><br />
-        <div class="well">
 
-            <table cellpadding="10">
+        <div>
+            <table cellpadding="10" class=" table text-center table-hover table-striped">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -47,7 +63,7 @@
                             else
                             {
                             @:</tr>
-                            }
+                        }
                     }
 
                     <td>@item.ID</td>
@@ -58,8 +74,8 @@
 
                     <td>
                         <input type="submit"
-                               formaction="/home/select/@item.ID"
-                               value="Select" class="btn btn-primary" />
+                               formaction="/home/edit/@item.ID"
+                               value="Edit" class="btn btn-primary" />
                     </td>
                     <td>
                         <input type="submit"
@@ -68,7 +84,7 @@
                     </td>
                     @:</tr>
                 }
-             
+
             </table>
         </div>
 
@@ -76,26 +92,7 @@
     <br /><br />
 
     <div class="top-right">
-        @{
-            if (Model.SelectedEmployee != null)
-            {
-                if (Model.DisplayMode == "ReadOnly")
-                {
-                    Html.RenderPartial
-                    ("_ShowEmployee", Model.SelectedEmployee);
-                }
-                if (Model.DisplayMode == "ReadWrite")
-                {
-                    Html.RenderPartial
-                    ("_EditEmployee", Model.SelectedEmployee);
-                }
-            }
-            //if (Model.DisplayMode == "WriteOnly")
-            //{
-            Html.RenderPartial("_InsertEmployee",
-            new MVCPOC.Models.Employee());
-       // }
-        }
+
     </div>
 
 </body>

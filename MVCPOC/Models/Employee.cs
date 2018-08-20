@@ -17,13 +17,14 @@ namespace MVCPOC.Models
         [Required]
         public string Name { get; set; }
 
-        //[Required]
+        [Required(ErrorMessage = "Email can't be empty")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
-        //[Required]
+        [Required]
         public string Password { get; set; }
 
-        //[Required]
+        [Required]
         public string Department { get; set; }
         
         //  [Required]

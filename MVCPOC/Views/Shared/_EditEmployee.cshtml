@@ -4,7 +4,7 @@
 {
     @Html.AntiForgeryToken()
 
-  <div class="form-horizontal">
+<div class="form-horizontal">
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -41,14 +41,16 @@
 
     @Html.HiddenFor(model => model.ID)
 
-    <td colspan="2">
-        <input type="submit" value="Save" class="btn btn-success"
-               formaction="/home/update" />
-        <input type="submit" value="Cancel" class="btn btn-danger"
-               formaction="/home/cancel/@Model.ID" />
-    </td>
-</div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success"
+                   formaction="/home/update" />
+            <input type="submit" value="Clear" class="btn btn-danger"
+                   formaction="/home/index/@Model.ID" />
+            </div>
+        </div>
+        </div>
 
 
-        
- }
+
+        }

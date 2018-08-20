@@ -19,6 +19,8 @@
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
@@ -26,7 +28,7 @@
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @* @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })*@
+                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
             </div>
         </div>
@@ -35,20 +37,20 @@
             @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control" } })
-               @* @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
             </div>
         </div>
 
         @Html.HiddenFor(model => model.ID)
 
-        <tr>
-            <td colspan="2">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success"
                        formaction="/home/insert" />
-                <input type="submit" value="Cancel" class="btn btn-danger"
+                <input type="submit" value="Clear" class="btn btn-danger"
                        formaction="/home/index" />
-            </td>
-        </tr>
+            </div>
+        </div>
     </div>
 }
 
