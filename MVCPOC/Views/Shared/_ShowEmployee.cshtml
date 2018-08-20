@@ -1,0 +1,35 @@
+﻿    @model MVCPOC.Models.Employee
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+<table cellpadding="10">
+    <tr>
+        <td> ID :</td>
+        <td>@Model.ID</td>
+    </tr>
+    <tr>
+        <td> Name :</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>Email :</td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td>Password :</td>
+        <td>@Model.Password</td>
+    </tr>
+    <tr>
+        <td>Department :</td>
+        <td>@Model.Department</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Edit" class="btn btn-group"
+                   formaction="/home/edit/@Model.ID" />
+            <input type="submit" value="Cancel" class="btn btn-danger"
+                   formaction="/home/index" />
+        </td>
+    </tr>
+</table>
+}

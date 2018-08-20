@@ -1,0 +1,102 @@
+﻿@model MVCPOC.ViewModels.EmployeeViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .SelectedEmployee {
+            background-color: gray;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>LIST OF EMPLOYEES</h1>
+
+    <form method="post">
+        <input type="submit" class="btn btn-success"
+               value="Add Employees" formaction="/home/new" />
+        <br /><br />
+        <div class="well">
+
+            <table cellpadding="10">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Department</th>
+
+                    <th colspan="2">Actions</th>
+                </tr>
+                @foreach (var item in Model.employees)
+                {
+                    if (Model.SelectedEmployee != null)
+                    {
+                        if (item.ID == Model.SelectedEmployee.ID)
+                        {
+                            @:<tr class="SelectedEmployee">
+                            }
+                            else
+                            {
+                            @:</tr>
+                            }
+                    }
+
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@item.Department</td>
+
+                    <td>
+                        <input type="submit"
+                               formaction="/home/select/@item.ID"
+                               value="Select" class="btn btn-primary" />
+                    </td>
+                    <td>
+                        <input type="submit"
+                               formaction="/home/delete/@item.ID"
+                               value="Delete" class="btn btn-danger" />
+                    </td>
+                    @:</tr>
+                }
+             
+            </table>
+        </div>
+
+    </form>
+    <br /><br />
+
+    <div class="top-right">
+        @{
+            if (Model.SelectedEmployee != null)
+            {
+                if (Model.DisplayMode == "ReadOnly")
+                {
+                    Html.RenderPartial
+                    ("_ShowEmployee", Model.SelectedEmployee);
+                }
+                if (Model.DisplayMode == "ReadWrite")
+                {
+                    Html.RenderPartial
+                    ("_EditEmployee", Model.SelectedEmployee);
+                }
+            }
+            //if (Model.DisplayMode == "WriteOnly")
+            //{
+            Html.RenderPartial("_InsertEmployee",
+            new MVCPOC.Models.Employee());
+       // }
+        }
+    </div>
+
+</body>
+</html>
