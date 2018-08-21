@@ -17,16 +17,11 @@ namespace MVCPOC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            try
-            {
+           
                 model.employees = db.Employees.ToList();
                 model.SelectedEmployee = null;
                 return View(model);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+           
            
         }
 
