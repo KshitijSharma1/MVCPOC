@@ -12,7 +12,5 @@ namespace MVCPOC.ViewModels
         public List<Employee> employees { get; set; }
 
         public Employee SelectedEmployee { get; set; }
-
-        public string  DisplayMode { get; set; }
     }
 }
