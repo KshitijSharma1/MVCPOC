@@ -18,9 +18,8 @@
     </style>
 </head>
 <body>
-   
-    <h1>ADD EMPLOYEE</h1>
-    <div class="container" style="width: 1600px; height: 259px; align-self:initial; padding-right:50% ">
+    <h1>ADD EMPLOYEE</h1> <br />
+    <div class="container" style="width: 1700px; height: 259px; align-self:initial; padding-right:50% ">
         @{
             if (Model.SelectedEmployee != null)
             {
@@ -38,11 +37,12 @@
     <br />
   @*  <h2>LIST OF EMPLOYEES</h2>*@
 
-<div>
+
     <form method="post">
         <br /><br />
 
-            <table cellpadding="10"  class=" table text-center table-hover table-striped">
+        <div>
+            <table cellpadding="10" class=" table text-center table-hover table-striped">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -66,16 +66,16 @@
                         }
                     }
 
-                    <td> @item.ID</td>
-                    <td> @item.Name</td>
-                    <td> @item.Email</td>
-                    <td> @item.Password</td>
-                    <td> @item.Department</td>
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@item.Department</td>
 
                     <td>
                         <input type="submit"
-                               formaction="/home/select/@item.ID"
-                               value="Select" class="btn btn-primary" />
+                               formaction="/home/edit/@item.ID"
+                               value="Edit" class="btn btn-primary" />
                     </td>
                     <td>
                         <input type="submit"
@@ -86,11 +86,14 @@
                 }
 
             </table>
-  
+        </div>
 
     </form>
-    <br />
-</div>
-    
+    <br /><br />
+
+    <div class="top-right">
+
+    </div>
+
 </body>
 </html>
