@@ -21,11 +21,8 @@ namespace MVCPOC.Controllers
                 model.employees = db.Employees.ToList();
                 model.SelectedEmployee = null;
                 return View(model);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+            
+           
            
         }
 
