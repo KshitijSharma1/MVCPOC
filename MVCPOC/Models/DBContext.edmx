@@ -14,6 +14,7 @@
           <Property Name="Password" Type="varchar" MaxLength="50" />
           <Property Name="Department" Type="varchar" MaxLength="50" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="POCDBModelStoreContainer">
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
@@ -32,8 +33,9 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="POCDBEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="POCDBEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employees" EntityType="Self.Employee" />
         </EntityContainer>
       </Schema>
@@ -41,7 +43,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="POCDBModelStoreContainer" CdmEntityContainer="POCDBEntities1">
+        <EntityContainerMapping StorageEntityContainer="POCDBModelStoreContainer" CdmEntityContainer="POCDBEntities2">
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="POCDBModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
@@ -50,6 +52,7 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
