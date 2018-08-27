@@ -13,10 +13,10 @@ namespace MVCPOC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class POCDBEntities1 : DbContext
+    public partial class POCDBEntities2 : DbContext
     {
-        public POCDBEntities1()
-            : base("name=POCDBEntities1")
+        public POCDBEntities2()
+            : base("name=POCDBEntities2")
         {
         }
     
